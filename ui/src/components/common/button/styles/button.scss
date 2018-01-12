@@ -1,0 +1,35 @@
+@import "common-styles/variable";
+@import "common-styles/site-mixins";
+
+.normal-btn {
+  background-color: $christine;
+  color: $white;
+  @include font-size(12px);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+
+  .glyphicon-refresh-animate {
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  &:focus {
+    color: $white;
+  }
+
+  &:hover {
+    border: 1px solid $christine;
+    background-color: $white;
+    color: $christine;
+    .glyphicon-refresh-animate {
+      color: $christine;
+    }
+  }
+
+  &.dont-show-loader {
+    .glyphicon-refresh {
+      display: none;
+    }
+  }
+}

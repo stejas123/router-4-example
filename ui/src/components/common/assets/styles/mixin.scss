@@ -1,0 +1,306 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Set a rem font size with pixel fallback
+2. Breakpoints
+3. Animation and Keyframes
+4. Cross browser opacity
+5. Font Face
+6. Autoprefix
+7. Border
+
+-------------------------------------------------------------------*/
+
+/*================================================================
+  1. Set a rem font size with pixel fallback
+
+	Usage
+	-----
+	p {
+	  @include font-size(14px)
+	}
+
+	Output
+	------
+	p {
+	  font-size: 14px; //Will be overridden if browser supports rem
+	  font-size: 0.8rem;
+	}
+==================================================================*/
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+}
+
+/*================================================================
+  2. Breakpoints
+
+  Usage
+  ---------
+	.sidebar {
+	  width: 60%;
+	  float: left;
+	  margin: 0 2% 0 0;
+	  @include bp-small {
+	    width: 100%;
+	    float: none;
+	    margin: 0;
+	  }
+	}
+
+	Output:
+	----------
+	.sidebar {
+	  width: 60%;
+	  float: left;
+	  margin: 0 2% 0 0;
+	  @media only screen and (max-width: 30){
+	    .sidebar{width: 100%; float: none; margin: 0;}
+	  }
+	}
+==================================================================*/
+
+@mixin bp-desktop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin bp-hi-definition {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin bp-ipad {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin bp-ipad-portrait {
+  @media (min-width: 768px) and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin bp-ipod {
+  @media (min-width: 320px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin bp-ipad-and-below-ipad {
+  @media (min-width: 320px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin bp-ipod-land {
+  @media (min-width: 560px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin bp-ipod-port {
+  @media (min-width: 320px) and (max-width: 559px) {
+    @content;
+  }
+}
+
+@mixin bp-mobile-port {
+  @media (min-width: 320px) and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin bp-ipad-ipod {
+  @media (min-width: 320px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin bp-only-ipad {
+  @media (width: 768px) {
+    @content;
+  }
+}
+@mixin bp-only-landscape {
+  @media screen and (orientation:landscape) and (max-width: 767px) {
+    @content;
+  }
+}
+
+/**
+ * Generic media query mixing for any random bp
+ * $condition: eg. 'only screen and (max-width: 1024px)'
+ */
+@mixin bp($condition) {
+  @media #{$condition} {
+    @content;
+  }
+}
+
+
+/*================================================================
+  3. Animation and Keyframes
+
+	Usage:
+	---------
+	@include keyframes(slide-down) {
+	  0% { opacity: 1; }
+	  90% { opacity: 0; }
+	}
+
+	.element {
+	  width: 100px;
+	  height: 100px;
+	  background: black;
+	  @include animation('slide-down 5s 3');
+	}
+==================================================================*/
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str, $fill-mode: both) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+  -webkit-animation-fill-mode: #{$fill-mode};
+  -moz-animation-fill-mode: #{$fill-mode};
+  -ms-animation-fill-mode: #{$fill-mode};
+  -o-animation-fill-mode: #{$fill-mode};
+  animation-fill-mode: #{$fill-mode};
+}
+
+/*================================================================
+  4. Cross browser opacity
+
+	Usage:
+	----------
+	.faded-text {
+	  @include opacity(0.8);
+	}
+==================================================================*/
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+}
+
+/*================================================================
+  5. Font Face
+
+	Usage:
+	----------
+	@include fontFace('MyFont','font/myfont');
+==================================================================*/
+@mixin fontFace($family,$src,$style: normal,$weight: normal) {
+	@font-face {
+		font-family: $family;
+    src: url('#{$src}.eot'); // IE9 compat
+    src: url('#{$src}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+      url('#{$src}.woff') format('woff'), // standards
+      url('#{$src}.ttf') format('truetype'), // Safari, Android, iOS
+      url('#{$src}.svg##{$family}') format('svg'); // legacy iOS
+
+    font-style: $style;
+    font-weight: $weight;
+	}
+}
+
+@mixin fontFamily($family: 'ProximaNova', $size: 14px, $style: normal, $weight: normal) {
+	font-family: $family, Arial, Helvetica, sans-serif;
+	@include font-size($size);
+	font-style: $style;
+	font-weight: $weight;
+}
+
+
+/*================================================================
+  6. Autoprefix
+
+	Usage:
+	------
+  .selector {
+    @include prefix(transform, rotate(42deg));
+  }
+==================================================================*/
+
+@mixin prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+
+/*================================================================
+  6. Border
+
+	Usage:
+	------
+  .selector {
+    @include border('top/right/bottom/left', 1px, solid, color);
+  }
+==================================================================*/
+
+@mixin border($border-position, $border-width: 1px, $border-type: solid, $border-color: #cfcfcf) {
+  border-#{$border-position}: $border-width $border-type $border-color;
+}
+
+/*=============================================================================
+  7. Placehoder
+
+  Usage:
+  ------
+  .selector {
+    @include placeholder(colorName);
+  }
+=============================================================================*/
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {color: $color}
+  &:-moz-placeholder           {color: $color}
+  &::-moz-placeholder          {color: $color}
+  &:-ms-input-placeholder      {color: $color}
+}
+
+/* ============================================================================
+  .selector {
+    @include autofill(textColor);
+  }
+  by using following css reset styling of textbox for autofill text
+============================================================================ */
+@mixin autofill($color) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $color;
+  }
+}

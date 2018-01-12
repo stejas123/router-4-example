@@ -1,0 +1,12 @@
+ul {
+	transition: all .3s;
+}
+
+.hide {
+	height: 0;
+	overflow: hidden;
+}
+
+.show {
+	height: auto;
+}

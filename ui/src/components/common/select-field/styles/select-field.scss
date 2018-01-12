@@ -1,0 +1,23 @@
+@import "common-styles/site-mixins";
+@import "common-styles/variable";
+
+.form-group > div {
+  position: relative;
+
+  select {
+    padding-right: 38px;
+    background: url("../arrow-down.png") right 16px center no-repeat;
+
+    &.white-arrow {
+      background: url("../arrow-down-white.png") right 16px center no-repeat;
+    }
+  }
+}
+
+.white-drop-arrow {
+  background: url("../arrow-down-white.png") right 16px center no-repeat;
+}
+
+.black-drop-arrow {
+  background: url("../arrow-down.png") right 16px center no-repeat;
+}

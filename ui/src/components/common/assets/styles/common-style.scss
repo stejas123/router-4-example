@@ -1,0 +1,372 @@
+@import './mixin';
+@import './variables';
+
+.form-control {
+  height: auto !important;
+  line-height: 20px !important;
+}
+
+.main-height {
+  box-sizing: border-box;
+  position: relative;
+  min-height: calc(100vh - 205px);
+
+  @include bp-ipod {
+    min-height: calc(100vh - 275px);
+  }
+}
+
+
+.settingIcon {
+    position: fixed;
+    z-index: 1000;
+    width: 27px;
+    height: 25px;
+    background: #c4c4c4;
+    top: 0;
+    padding: 5px;
+    border-radius: 0 50% 50% 0;
+}
+
+.cf:before,
+.cf:after {
+ display: table;
+ content: " ";
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.cf:after { clear: both; }
+
+body { overflow-x: hidden; }
+
+.wrapperFluid {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1306px;
+  padding: 0 2.8%;
+  margin: 0 auto;
+
+  @include bp-ipod {
+    padding: 0 20px;
+  }
+}
+
+.btn {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 7px 28px;
+  background: #b78b20;
+  color: #fff;
+  font-family: $fontFamily;
+  @include font-size(20px);
+  line-height: $btnLineHeight;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include prefix(transition, all 0.4s);
+  &:hover {
+    border: 1px solid $submitButtonBgColor;
+    background-color: $submitButtonColor;
+    color: $submitButtonBgColor;
+     @include bp-ipad-ipod {
+      border: 1px solid $submitButtonBgColor;
+      background-color: $submitButtonBgColor;
+      color: $submitButtonColor;
+    }
+  }
+  &:focus {
+    color: $submitButtonBgColor;
+     @include bp-ipad-ipod {
+      color: $submitButtonColor;
+     }
+  }
+}
+
+.dangerous-html {
+  @include fontFamily('Open Sans');
+
+  p {
+    @include font-size(16px);
+    padding: 0;
+    border: 0;
+    margin: 0 0 13px 0;
+
+    @include bp-ipod-land {
+      @include font-size(15px);
+    }
+
+    @include bp-ipod-port {
+      @include font-size(14px);
+      line-height: 22px;
+    }
+  }
+
+  a { color: $linkColor; }
+
+  h1,h2,h3,h4,h5,h6 {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    @include font-size(29px);
+    line-height: 50px;
+    color: $commonContentColor;
+
+    @include bp-ipod-land {
+      @include font-size(19px);
+    }
+
+    @include bp-ipod-port {
+      @include font-size(17px);
+      line-height: 50px;
+    }
+  }
+
+  li {
+    @include font-size(16px);
+    padding: 0;
+    border: 0;
+    margin: 0;
+  }
+
+  img,
+  iframe,
+  video {
+    width: 70%;
+    height: auto;
+    margin-bottom: 13px;
+    @include bp-ipod {
+      width: 100%;
+    }
+  }
+
+  iframe,
+  video {
+    height: 400px;
+  }
+
+  ul,
+  li {list-style-type: disc;}
+
+  ol { list-style-type:decimal; }
+
+}
+
+.header-wrapper {
+  box-sizing: border-box;
+  border-bottom: 2px solid $normalBorderColor;
+  margin: 60px auto 50px;
+  position: relative;
+  @include bp-ipod {
+    margin: 31px auto 29px;
+  }
+}
+
+h3 {
+  width: auto;
+  padding-bottom: 13px;
+  padding-left: 10px;
+  margin-bottom: -2px;
+  border-bottom:  2px solid $highlightBorderColor;
+  display: table;
+  color: $sectionHeadingColors;
+  @include font-size(40px);
+  font-family: $fontFamily;
+  font-weight: 900;
+  line-height: $sectionHeadingLineHeight;
+  text-transform: uppercase;
+  @include bp-ipod-land {
+    @include font-size(28px);
+    line-height: 34px;
+  }
+  @include bp-ipod-port {
+    padding-left: 4px;
+    padding-bottom: 10px;
+    @include font-size(21px);
+    line-height: 30px;
+  }
+}
+
+h4 {
+  width: 90%;
+  padding: 0 10px 20px;
+  border-bottom: 2px solid $highlightBorderColor;
+  margin-bottom: -2px;
+  display: table;
+  color: #555;
+  font-family: $fontFamily;
+  @include font-size(26px);
+  line-height: 35px;
+  font-weight: 900;
+  @include bp-ipod-land {
+    @include font-size(22px);
+    line-height: 30px;
+  }
+
+  @include bp-ipod-port {
+    padding-left: 5px;
+    @include font-size(19px);
+    line-height: 25px;
+  }
+}
+
+p {
+  color: $commonContentColor;
+  font-family: $fontFamily;
+  @include font-size(16px);
+  line-height: $commonContentLineHeight;
+
+      @include bp-ipod-land {
+      @include font-size(15px);
+      line-height: 22px;
+    }
+
+
+  @include bp-ipod-port {
+    @include font-size(14px);
+    line-height: 22px;
+  }
+}
+
+.text-field {
+  @include autofill($fieldInputColor);
+}
+
+.desktop-hide {
+  display: none !important;
+  @include bp-ipod {
+    display: block !important;
+  }
+}
+
+.mobile-hide {
+  @include bp-ipod {
+    display: none !important;
+  }
+}
+
+.tablet-hide {
+  @include bp-ipad-ipod {
+    display: none !important;
+  }
+}
+
+.create-new-container {
+    margin: 40px 0;
+
+    .search-input {
+      width: 31.33%;
+      float: left;
+      @include bp-ipod {
+        width: 100%;
+        margin-top: 90px;
+        float: none;
+        clear: right;
+      }
+
+      & > input {
+        width: 100%;
+        padding: 9px 15px;
+        border: 1px solid $formInputBorderColor;
+        color: $fieldInputColor;
+        font-family: $fontFamily;
+        @include font-size(16px);
+        font-weight: 400;
+
+        &:focus {
+          border-color: $formInputBorderColor;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+      }
+    }
+
+    & > a {
+      padding: 7px 15px 9px;
+      border: 1px solid $createNewBtnColor;
+      float: right;
+      background-color: $createNewBtnBgColor;
+      color: $createNewBtnColor;
+      font-family: $fontFamily;
+      @include font-size(16px);
+      font-weight: 600;
+      line-height: 20px;
+      text-transform: uppercase;
+      @include prefix(transition, all .4s);
+
+      &:hover {
+        background-color: $createNewBtnColor;
+        color: $createNewBtnBgColor;
+        @include bp-ipad-ipod {
+          background-color: $createNewBtnBgColor;
+          color: $createNewBtnColor;
+        }
+      }
+
+      & > i {
+        font-style: normal;
+      }
+    }
+  }
+
+  .pagination {
+    margin-top: 0;
+    margin-bottom: 50px;
+    float: right;
+  }
+
+  .file-depot-download {
+    .file-name {
+      display: inline-block;
+      width: 72%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .download {
+      width: 20px;
+      height: 19px;
+      vertical-align: top;
+      float: right;
+    }
+  }
+
+  .no-data {
+    color: $noDataTextColor;
+    font-family: $fontFamily;
+    @include font-size(16px);
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .back-to-top-containers {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    z-index: 100;
+    @include bp-ipad-and-below-ipad {
+      display: none;
+    }
+
+    .back-to-top-link {
+      &>i {
+        font-size: 50px;
+      }
+    }
+  }
+
+  /* notie custom style */
+  .notie-container {
+    background-color: $notieBgColor;
+    z-index: 1000;
+  }
+
+  .notie-textbox-inner {
+    color: $notieColor;
+    font-family: $fontFamily;
+    @include font-size(16px);
+    font-weight: 600;
+    text-align: center;
+  }

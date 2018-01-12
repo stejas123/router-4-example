@@ -1,0 +1,23 @@
+{
+  "name": "ready-responders-network",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.2.0"
+  },
+  "scripts": {
+    "start": "cd ui/ && npm run start",
+    "prod": "cd ui/ && npm run build ",
+    "stage": "cd ui/ && npm run build && firebase deploy"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "ui/node_modules"
+  ],
+  "dependencies": {
+    "aws-sdk": "^2.27.0",
+    "express": "^4.14.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0"
+  },
+  "devDependencies": {}
+}

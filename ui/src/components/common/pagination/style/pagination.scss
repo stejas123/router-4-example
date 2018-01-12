@@ -1,0 +1,27 @@
+// @import "../../assets/styles/mixins.scss";
+// @import "../../assets/styles/variables.scss";
+
+.listing {
+
+	.pagination {
+
+		.active {
+
+			a {
+				border: 1px solid #ec7c33;
+				background-color: #ec7c33;
+				cursor: pointer;
+
+				&:hover {
+					border: 1px solid #ec7c33;
+					background-color: #ec7c33;
+				}
+
+				&:focus {
+					border: 1px solid #ec7c33;
+					background-color: #ec7c33;
+				}
+			}
+		}
+	}
+}

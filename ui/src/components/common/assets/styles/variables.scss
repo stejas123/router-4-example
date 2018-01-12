@@ -1,0 +1,80 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. colors
+2. fontFamily
+3. LineHights
+4. Breakpoints
+
+-------------------------------------------------------------------*/
+/* 1. colors */
+$sectionHeadingColors: #555;
+$commonContentColor: #555;
+$navColor: #1d4f91;
+$highlightBorderColor: #b78b20;
+$normalBorderColor: #e4e9f0;
+$regFormBgColor: #fff;
+$regFormForegroundColor: #555;
+$formInputBorderColor: #ccc;
+$formErrMgsColor: #ab0202;
+$submitButtonBgColor: #b78b20;
+$submitButtonColor: #fff;
+$fieldInputColor: #6a6a6a;
+$linkColor: #1d4f91;
+$regFormContentColor: #555;
+$containerBgColor: #f4f4f4;
+$inputFieldBgColor: #f7f7f8;
+$createNewBtnColor: #b78b20;
+$createNewBtnBgColor: #fff;
+$heaerNavColor: #555;
+$headerNavHoverColor: #1d4f91;
+$subNavBgColor: #fff;
+$noResultColor: #ab0202;
+$textareaColor: #f7f7f8;
+$submitPostColor: #fff;
+$lightOrangeColor: #fbf2dd;
+$lightBlueColor: #e9f2ff;
+$glossaryFilterByLetterColor: #707070;
+
+/* table */
+$tableHeadingBgColor: #174e92;
+$tableHeadingColor: #fff;
+$tableContentBgColor: #fff;
+$tableContentColor: #555;
+$tableBorderColor: #e4e9f0;
+$tableContentHover: #bcd3f1;
+
+/* group details */
+$groupSectionHeadingColor: #555;
+$linkLikeBtnBgColor: #00468c;
+$linkLikeBtnColor: #fff;
+$linkLikeBtnBgHoverColor: #fff;
+$linkLikeBtnHoverColor: #00468c;
+$badgeColor: #1d4f91;
+$badgeBgColor: #fff;
+$linkHoverColor: #b78b20;
+
+/* notie */
+$notieBgColor: #c79d36;
+$notieColor: #fff;
+
+/* form field bg color */
+$formFieldBgColor: #f7f7f7;
+
+/* no data found text*/
+$noDataTextColor: #ab0202;
+
+/* 2. fontFamily */
+$fontFamily: 'Open Sans', sans-serif;
+
+/* 3.  LineHeights */
+$sectionHeadingLineHeight: 50px;
+$commonContentLineHeight: 26px;
+$btnLineHeight: 35px;
+
+/* accordion */
+
+$accordingHeadingBackground: #e4e9f0;
+$accordingHeadingText: #555;
+
+$contactPopupErrMsgColor: #ef4d4d;

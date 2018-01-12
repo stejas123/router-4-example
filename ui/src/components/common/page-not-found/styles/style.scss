@@ -1,0 +1,22 @@
+@import 'src/components/common/assets/styles/common-style';
+
+.page-not-found {
+	text-align: center;
+	padding: 20px 0;
+	p {
+		box-sizing: border-box;
+		width: 90%;
+		margin: 50px auto 10px;
+		color: $noDataTextColor;
+		font-family: $fontFamily;
+		@include font-size(18px);
+	}
+
+	.back-to-page {
+		min-height: calc(100vh - 101px);
+		color: $linkColor;
+		@include font-size(16px);
+		font-family: $fontFamily;
+		display: inline-block;
+	}
+}

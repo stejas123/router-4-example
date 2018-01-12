@@ -1,0 +1,54 @@
+@import 'src/components/common/assets/styles/mixin';
+@import 'src/components/common/assets/styles/variables';
+
+@include keyframes(spin-submit-button) {
+  0% { transform: scale(1) rotate(0deg);}
+  100% { transform: scale(1) rotate(360deg);}
+}
+
+.glyphicon-refresh-animate {
+  @include animation(spin-submit-button .7s infinite linear);
+}
+
+// Submit button
+.btn.sub-btn {
+  padding: 14px 12px;
+  background-color: $submitButtonBgColor;
+  color: $submitButtonColor;
+  @include font-size(22px);
+  font-weight: 700;
+  font-family: $fontFamily;
+  text-align: center;
+  text-transform: uppercase;
+  @include prefix(transition, all 0.4s);
+  @include bp-mobile-port {
+    @include font-size(20px);
+  }
+
+  &:focus {
+    background-color: $submitButtonBgColor;
+    color: $submitButtonColor;
+  }
+
+  &.dont-show-loader {
+    .glyphicon-refresh {
+      display: none;
+    }
+  }
+
+  &:hover {
+    border: 1px solid $submitButtonBgColor;
+    background-color: $submitButtonColor;
+    color: $submitButtonBgColor;
+    @include bp-ipad-ipod {
+      border: 1px solid $submitButtonBgColor;
+      background-color: $submitButtonBgColor;
+      color: $submitButtonColor;
+    }
+
+    .glyphicon-refresh-animate {
+      @include font-size(18px);
+      color: $submitButtonBgColor;
+    }
+  }
+}
